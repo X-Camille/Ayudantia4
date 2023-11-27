@@ -9,10 +9,8 @@ import java.awt.event.ActionListener;
 public class GUIBiblioteca extends JFrame implements ActionListener {
 
 	private final Biblioteca biblioteca = new Biblioteca("UFRO", "Uruguay");
-	private JButton bAgregarPrestamo;
 	private JButton bAgregarLibro;
 	private JButton bAgregarUsuario;
-	private JButton bBuscarPrestamo;
 	private JButton bBuscarLibro;
 	private JButton bBuscarUsuario;
 
@@ -37,17 +35,12 @@ public class GUIBiblioteca extends JFrame implements ActionListener {
 		JLabel titleLabel = new JLabel("Biblioteca", SwingConstants.CENTER);
 		configurarTitulo(titleLabel, gbc, panel);
 
-		bAgregarPrestamo = crearBoton("Agregar Préstamo", new Color(255, 200, 100));
-		configurarBoton(bAgregarPrestamo, gbc, panel, 1);
-
 		bAgregarLibro = crearBoton("Agregar Libro", new Color(100, 200, 255));
 		configurarBoton(bAgregarLibro, gbc, panel, 2);
 
 		bAgregarUsuario = crearBoton("Agregar Usuario", new Color(100, 255, 100));
 		configurarBoton(bAgregarUsuario, gbc, panel, 3);
 
-		bBuscarPrestamo = crearBoton("Buscar Préstamo", new Color(173, 216, 230));
-		configurarBoton(bBuscarPrestamo, gbc, panel, 4);
 
 		bBuscarLibro = crearBoton("Buscar Libro", new Color(255, 100, 100));
 		configurarBoton(bBuscarLibro, gbc, panel, 5);
@@ -92,18 +85,12 @@ public class GUIBiblioteca extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == bAgregarPrestamo) {
-			dispose();
-			new VentanaPrestamo(biblioteca).mostrarInterfaz();
-		} else if (e.getSource() == bAgregarLibro) {
+		if (e.getSource() == bAgregarLibro) {
 			dispose();
 			new VentanaAgregarLibro(biblioteca).mostrarInterfaz();
 		} else if (e.getSource() == bAgregarUsuario) {
 			dispose();
 			new VentanaAgregarUsuario(biblioteca).mostrarInterfaz();
-		} else if (e.getSource() == bBuscarPrestamo) {
-			dispose();
-			new VentanaBusquedaPrestamo(biblioteca);
 		} else if (e.getSource() == bBuscarLibro) {
 			dispose();
 			new VentanaBusquedaLibro(biblioteca);
