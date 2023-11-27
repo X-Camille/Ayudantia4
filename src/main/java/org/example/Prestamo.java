@@ -1,9 +1,10 @@
 package org.example;
 
+import java.util.UUID;
+
 public class Prestamo {
 
 	private Usuario usuarios;
-	private Bibliotecario Bibliotecario;
 	private Bibliotecario bibliotecario;
 	private Usuario usuario;
 	private Libro libro;
@@ -13,6 +14,12 @@ public class Prestamo {
 	public Prestamo(Usuario usuario, Libro libro) {
 		this.usuario = usuario;
 		this.libro = libro;
+	}
+
+	public Prestamo(Usuario usuario, Libro libro, Bibliotecario bibliotecario){
+		this.usuario = usuario;
+		this.libro = libro;
+		this.bibliotecario = bibliotecario;
 	}
 
 	public Bibliotecario getBibliotecario() {
@@ -36,6 +43,7 @@ public class Prestamo {
 		return libro;
 	}
 
+
 	public void setLibro(Libro libro) {
 		this.libro = libro;
 	}
@@ -58,5 +66,7 @@ public class Prestamo {
 		this.fecha_termino = fecha_termino;
 	}
 
-
+	public String toString(){
+		return getUsuario() + ", " + getLibro() + ", " + getBibliotecario();
+	}
 }

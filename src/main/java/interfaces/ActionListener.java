@@ -1,7 +1,7 @@
 package interfaces;
 
+import java.awt.event.ActionEvent;
+
 public interface ActionListener {
-
-	void actionPerformed();
-
+	void actionPerformed(ActionEvent e);
 }

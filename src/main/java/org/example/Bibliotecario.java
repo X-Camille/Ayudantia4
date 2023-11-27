@@ -56,9 +56,11 @@ public class Bibliotecario {
 		this.id = id;
 	}
 
-	public Bibliotecario() {
-		// TODO - implement Bibliotecario.Bibliotecario
-		throw new UnsupportedOperationException();
+	public Bibliotecario(String nombre) {
+		this.nombre = nombre;
 	}
 
+	public String toString(){
+		return getNombre();
+	}
 }

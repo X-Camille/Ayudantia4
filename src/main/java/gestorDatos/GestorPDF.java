@@ -23,13 +23,13 @@ public class GestorPDF {
         System.out.println("Se ha generado " + this.generarNombrePdf());
     }
 
-    public void rellenarPDF(PDDocument documento, PDPage pagina, String[] lineasVenta){
+    public void rellenarPDF(PDDocument documento, PDPage pagina, String[] lineasLibro){
         try(PDPageContentStream contenidoPagina = new PDPageContentStream(documento, pagina)){
-            for(int linea=0; linea < lineasVenta.length; linea++){
+            for(int linea=0; linea < lineasLibro.length; linea++){
                contenidoPagina.beginText();
                contenidoPagina.newLineAtOffset(10, pagina.getMediaBox().getHeight()-(10*linea));
                contenidoPagina.setFont(PDType1Font.HELVETICA_BOLD, 8f);
-               contenidoPagina.showText(lineasVenta[linea]);
+               contenidoPagina.showText(lineasLibro[linea]);
                contenidoPagina.endText();
             }
         } catch (IOException e) {
@@ -38,12 +38,13 @@ public class GestorPDF {
     }
 
     public String[] obtenerLineasPdf(Libro libro){
-        String[] lineasPdf = new String[5];
-        lineasPdf[0] = "Biblioteca UFRO";
-        lineasPdf[1] = "Título: " + libro.getNombre();
-        lineasPdf[2] = "Autor: " + libro.getAutor();
-        lineasPdf[3] = "Editorial: " + libro.getEditorial();
-        lineasPdf[4] = "ISBN: " + libro.getIsbn();
+        String[] lineasPdf = new String[6];
+        lineasPdf[0] = "";
+        lineasPdf[1] = "Biblioteca UFRO";
+        lineasPdf[2] = "Libro: " + libro.getNombre();
+        lineasPdf[3] = "Autor: " + libro.getAutor();
+        lineasPdf[4] = "Editorial: " + libro.getEditorial();
+        lineasPdf[5] = "ISBN: " + libro.getIsbn();
         return lineasPdf;
     }
 
@@ -51,7 +52,7 @@ public class GestorPDF {
         Date fecha = new Date();
         String fechaArchivo = fecha.toString();
         fechaArchivo = fechaArchivo.replace(" ","").replace(":", "");
-        return "target/"+"boleta"+fechaArchivo+".pdf";
+        return "target/"+"libro"+fechaArchivo+".pdf";
     }
 }
 

@@ -9,6 +9,8 @@ public class Libro {
     private String editorial;
     private String isbn;
 
+    private Especialidad especialidad;
+
     public String getNombre() {
         return this.nombre;
     }
@@ -33,6 +35,12 @@ public class Libro {
         this.editorial = editorial;
     }
 
+    public Especialidad getEspecialidad() {
+        return this.especialidad;
+    }
+    public void setEspecialidad(Especialidad especialidad) {
+        this.especialidad = especialidad;
+    }
     public String getIsbn() {
         return this.isbn;
     }
@@ -40,6 +48,7 @@ public class Libro {
     public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
+
 
     // Genera un ISBN aleatorio de 13 dígitos
     public void generarIsbnAleatorio() {
@@ -62,11 +71,6 @@ public class Libro {
     }
     @Override
     public String toString() {
-        return "Libro{" +
-                "nombre='" + nombre + '\'' +
-                ", autor='" + autor + '\'' +
-                ", editorial='" + editorial + '\'' +
-                ", isbn='" + isbn + '\'' +
-                '}';
+        return nombre + ", " + autor + ", " + editorial;
     }
 }

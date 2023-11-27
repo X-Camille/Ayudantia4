@@ -5,8 +5,7 @@ public class Usuario {
 	private Prestamo prestamo;
 	private String nombre;
 	private String rut;
-	private int numero;
-	private int telefono;
+	private String telefono;
 
 	public String getNombre() {
 		return this.nombre;
@@ -25,29 +24,24 @@ public class Usuario {
 		this.rut = rut;
 	}
 
-	public int getNumero() {
-		return this.numero;
-	}
 
-
-	public void setNumero(int numero) {
-		this.numero = numero;
-	}
-
-	public int getTelefono() {
+	public String getTelefono() {
 		return this.telefono;
 	}
 
 
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 
-	public Usuario(String nombre, String rut, int numero, int telefono) {
+	public Usuario(String nombre, String rut, String telefono) {
 		this.nombre = nombre;
 		this.rut = rut;
-		this.numero = numero;
 		this.telefono = telefono;
+	}
+
+	public String toString(){
+		return getNombre() + "," + getRut() + "," + getTelefono();
 	}
 
 }
