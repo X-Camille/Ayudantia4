@@ -9,23 +9,6 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class GestorDatos {
-    public void leerArchivo(String direccionArchivo) {
-        String textoArchivo = "";
-        String[] data = new String[0];
-        try {
-            File archivo = new File(direccionArchivo);
-            FileReader fr = new FileReader(archivo);
-            BufferedReader br = new BufferedReader(fr);
-            while ((textoArchivo = br.readLine()) != null) {
-                data = textoArchivo.split(",");
-            }
-            for (String item : data) {
-                System.out.println(item);
-            }
-        } catch (Exception e) {
-            System.out.println("Documento no disponible, favor contactar con administrador");
-        }
-    }
 
     public ArrayList<Prestamo> leerArchivoYCrearInstancias(String direccionArchivo) {
         ArrayList<Prestamo> prestamos = new ArrayList<>();
